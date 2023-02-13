@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  background-color: rgb(68, 75, 81);
+  color: white;
+  padding: 4px;
+}
+
+.nav-logo {
+  font-size: 1.7rem;
+}
+
+.nav-logo,
+.NavLink {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NavLink {
+  padding: 4px 16px;
+  height: 30px;
+  margin: 0 2px;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+}
+
+.NavLink:hover {
+  border: 2px solid #ddd;
+}
+.nav-cart {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-cart-count {
+  color: rgb(252, 156, 135);
+  font-weight: 800;
+  position: relative;
+  bottom: 10px;
+  left: 5px;
+}
+
+.nav-cart-icon {
+  font-size: 1.3em;
+  position: relative;
+  top: 3px;
+}
+
+.active {
+  border-bottom: 2px solid #ddd ;
+}
+
+.Shop {
+  display: flex;
+  flex-direction: column;
+}
