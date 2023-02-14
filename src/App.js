@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
@@ -27,7 +27,7 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <Nav cartItems={cartItems} />
         <Routes>
@@ -42,7 +42,7 @@ const App = () => {
           />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
