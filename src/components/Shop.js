@@ -2,7 +2,7 @@ import React from "react";
 import Product from "./Product";
 
 const Shop = (props) => {
-  const { products, onAdd } = props;
+  const { products, cartItems, onAdd, onRemove } = props;
 
   return (
     <div className="Shop">
@@ -11,7 +11,13 @@ const Shop = (props) => {
         <hr />
         <div className="products-list">
           {products.map((product) => (
-            <Product onAdd={onAdd} key={product.id} product={product}></Product>
+            <Product
+              onAdd={onAdd}
+              onRemove={onRemove}
+              key={product.id}
+              product={product}
+              cartItems={cartItems}
+            ></Product>
           ))}
         </div>
       </div>
