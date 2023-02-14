@@ -20,7 +20,7 @@ body {
   text-align: center;
 }
 
-h2, h3 {
+h2 {
   margin-bottom: 20px;
 }
 
@@ -73,7 +73,7 @@ nav {
   color: rgb(252, 156, 135);
   font-weight: 700;
   position: relative;
-  bottom: 10px;
+  bottom: 7px;
   left: 5px;
 }
 
@@ -168,8 +168,8 @@ nav {
 .cart-items-list {
   display: flex;
   flex-direction: column;
-  
 }
+
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -216,12 +216,10 @@ nav {
   border: 1px solid #FCD200;
   color: #0F1111;
   font-size: 16px;
-  line-height: 20px;
   border-radius: 100px;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
   cursor: pointer;
   padding: 2px 8px;
-  margin: 20px 20px 0 20px;
   font-weight: 600;
   display: flex;
   justify-content: center;
