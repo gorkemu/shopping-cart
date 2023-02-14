@@ -50,7 +50,12 @@ const App = () => {
           <Route
             path="/shop"
             element={
-              <Shop onAdd={addItem} onRemove={removeItem} products={products} />
+              <Shop
+                onAdd={addItem}
+                onRemove={removeItem}
+                products={products}
+                cartItems={cartItems}
+              />
             }
           />
           <Route
