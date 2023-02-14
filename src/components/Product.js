@@ -11,7 +11,7 @@ const Product = (props) => {
       ></img>
       <div className="product-name">{product.name}</div>
       <div className="product-price">${product.price.toLocaleString()}</div>
-      <button onClick={() => onAdd(product)} className="add-to-cart-btn">
+      <button onClick={() => onAdd(product)} className="btn add-to-cart-btn">
         Add to Cart
       </button>
     </div>
