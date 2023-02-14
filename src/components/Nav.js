@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 
 const Nav = (props) => {
+  const { cartItems } = props;
   return (
     <nav>
       <Link to="/" className="nav-logo">
@@ -19,7 +20,7 @@ const Nav = (props) => {
           <i className="nav-cart-icon">
             <FiShoppingCart />
           </i>
-          <span className="nav-cart-count">3</span>
+          <span className="nav-cart-count">{cartItems.length}</span>
         </NavLink>
       </ul>
     </nav>
