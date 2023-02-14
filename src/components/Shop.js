@@ -2,7 +2,7 @@ import React from "react";
 import Product from "./Product";
 
 const Shop = (props) => {
-  const { products, cartItems, onAdd, onRemove } = props;
+  const { products, cartItems, onAdd, onRemove, onRemoveAll } = props;
 
   return (
     <div className="Shop">
@@ -14,6 +14,7 @@ const Shop = (props) => {
             <Product
               onAdd={onAdd}
               onRemove={onRemove}
+              onRemoveAll={onRemoveAll}
               key={product.id}
               product={product}
               cartItems={cartItems}

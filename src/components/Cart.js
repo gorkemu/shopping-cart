@@ -2,7 +2,7 @@ import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 
 const Cart = (props) => {
-  const { cartItems, onAdd, onRemove } = props;
+  const { cartItems, onAdd, onRemove, onRemoveAll } = props;
   const totalPrice = cartItems.reduce(
     (accumulator, current) => accumulator + current.qty * current.price,
     0
@@ -36,6 +36,12 @@ const Cart = (props) => {
                   +
                 </button>
               </div>
+              <span
+                onClick={() => onRemoveAll(item)}
+                className="remove-icon-in-cart"
+              >
+                Remove
+              </span>
               <div className="cart-item-price">
                 {item.qty} x ${item.price.toLocaleString()}
               </div>
