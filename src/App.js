@@ -41,6 +41,10 @@ const App = () => {
     }
   };
 
+  const clearItem = (item) => {
+    setCartItems(cartItems.filter((x) => x.id !== item.id));
+  };
+
   return (
     <HashRouter>
       <div className="App">
@@ -53,6 +57,7 @@ const App = () => {
               <Shop
                 onAdd={addItem}
                 onRemove={removeItem}
+                onRemoveAll={clearItem}
                 products={products}
                 cartItems={cartItems}
               />
@@ -64,6 +69,7 @@ const App = () => {
               <Cart
                 onAdd={addItem}
                 onRemove={removeItem}
+                onRemoveAll={clearItem}
                 cartItems={cartItems}
               />
             }
