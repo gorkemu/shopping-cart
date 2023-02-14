@@ -2,7 +2,7 @@ import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 
 const Cart = (props) => {
-  const { cartItems, onAdd } = props;
+  const { cartItems, onAdd, onRemove } = props;
   const totalPrice = cartItems.reduce(
     (accumulator, current) => accumulator + current.qty * current.price,
     0
@@ -13,7 +13,11 @@ const Cart = (props) => {
       <div className="Shopping-Cart">
         <h2>Your Shopping Cart</h2>
         <hr />
-        <div>{cartItems.length === 0 && <div>Your cart is empty</div>}</div>
+        <div>
+          {cartItems.length === 0 && (
+            <div className="empty-cart-text">Your cart is empty</div>
+          )}
+        </div>
         <div className="cart-items-list">
           {cartItems.map((item) => (
             <div key={item.id} className="cart-item">
@@ -23,6 +27,15 @@ const Cart = (props) => {
                 alt={item.name}
               ></img>
               <div className="cart-item-name">{item.name}</div>
+              <div className="cart-item-btns">
+                <button className="btn qty-btn" onClick={() => onRemove(item)}>
+                  -
+                </button>
+                <span>{item.qty}</span>
+                <button className="btn qty-btn" onClick={() => onAdd(item)}>
+                  +
+                </button>
+              </div>
               <div className="cart-item-price">
                 {item.qty} x ${item.price.toLocaleString()}
               </div>
@@ -41,7 +54,7 @@ const Cart = (props) => {
           The prices shown include VAT.<span>{<br />}</span> The price in $ is a
           guideline price only!
         </div>
-        <button className="checkout-btn">
+        <button className="btn checkout-btn">
           <span>TO CHECKOUT</span>
           <BsArrowRight className="arrow-icon" />
         </button>
