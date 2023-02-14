@@ -26,6 +26,21 @@ const App = () => {
     }
   };
 
+  const removeItem = (item) => {
+    const alreadyInTheCart = cartItems.find((x) => x.id === item.id);
+    if (alreadyInTheCart.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== item.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === item.id
+            ? { ...alreadyInTheCart, qty: alreadyInTheCart.qty - 1 }
+            : x
+        )
+      );
+    }
+  };
+
   return (
     <HashRouter>
       <div className="App">
@@ -34,11 +49,19 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route
             path="/shop"
-            element={<Shop onAdd={addItem} products={products} />}
+            element={
+              <Shop onAdd={addItem} onRemove={removeItem} products={products} />
+            }
           />
           <Route
             path="/cart"
-            element={<Cart onAdd={addItem} cartItems={cartItems} />}
+            element={
+              <Cart
+                onAdd={addItem}
+                onRemove={removeItem}
+                cartItems={cartItems}
+              />
+            }
           />
         </Routes>
       </div>
