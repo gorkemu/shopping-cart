@@ -168,9 +168,39 @@ nav {
   margin: 4px;
 }
 
+/* .added-to-cart-btns {
+  display: flex;
+  align-items: center;
+} */
+
+.add-remove-btns {
+  justify-self: baseline;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-remove-btn {
   padding: 2px 8px;
   margin: 4px;
+}
+
+.remove-icon {
+  position: relative;
+  bottom: 27px;
+  left: 80px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.remove-icon-in-cart {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.remove-icon:hover,
+.remove-icon-in-cart:hover {
+  text-decoration: underline;
 }
 
 .checkout-btn {
