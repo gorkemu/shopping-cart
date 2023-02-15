@@ -1,9 +1,13 @@
 import React from "react";
 import Product from "./Product";
 
-const Shop = (props) => {
-  const { products, cartItems, onAdd, onRemove, onRemoveAll } = props;
-
+const Shop = ({
+  products,
+  cartItems,
+  onIncrement,
+  onDecrement,
+  onClearItem,
+}) => {
   return (
     <div className="Shop">
       <div className="products">
@@ -12,9 +16,9 @@ const Shop = (props) => {
         <div className="products-list">
           {products.map((product) => (
             <Product
-              onAdd={onAdd}
-              onRemove={onRemove}
-              onRemoveAll={onRemoveAll}
+              onIncrement={onIncrement}
+              onDecrement={onDecrement}
+              onClearItem={onClearItem}
               key={product.id}
               product={product}
               cartItems={cartItems}

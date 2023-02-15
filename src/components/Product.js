@@ -1,8 +1,12 @@
 import React from "react";
 
-const Product = (props) => {
-  const { product, cartItems, onAdd, onRemove, onRemoveAll } = props;
-
+const Product = ({
+  product,
+  cartItems,
+  onIncrement,
+  onDecrement,
+  onClearItem,
+}) => {
   const isInTheCart = cartItems.find((item) => item.id === product.id);
 
   return (
@@ -19,24 +23,27 @@ const Product = (props) => {
           <div className="add-remove-btns">
             <button
               className="btn add-remove-btn qty-btn"
-              onClick={() => onRemove(product)}
+              onClick={() => onDecrement(product)}
             >
               -
             </button>
             <span>{isInTheCart.qty}</span>
             <button
               className="btn add-remove-btn qty-btn"
-              onClick={() => onAdd(product)}
+              onClick={() => onIncrement(product)}
             >
               +
             </button>
           </div>
-          <span onClick={() => onRemoveAll(product)} className="remove-icon">
+          <span onClick={() => onClearItem(product)} className="remove-icon">
             Remove
           </span>
         </div>
       ) : (
-        <button onClick={() => onAdd(product)} className="btn add-to-cart-btn">
+        <button
+          onClick={() => onIncrement(product)}
+          className="btn add-to-cart-btn"
+        >
           Add to Cart
         </button>
       )}

@@ -1,8 +1,7 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 
-const Cart = (props) => {
-  const { cartItems, onAdd, onRemove, onRemoveAll } = props;
+const Cart = ({ cartItems, onIncrement, onDecrement, onClearItem }) => {
   const totalPrice = cartItems.reduce(
     (accumulator, current) => accumulator + current.qty * current.price,
     0
@@ -28,16 +27,22 @@ const Cart = (props) => {
               ></img>
               <div className="cart-item-name">{item.name}</div>
               <div className="cart-item-btns">
-                <button className="btn qty-btn" onClick={() => onRemove(item)}>
+                <button
+                  className="btn qty-btn"
+                  onClick={() => onDecrement(item)}
+                >
                   -
                 </button>
                 <span>{item.qty}</span>
-                <button className="btn qty-btn" onClick={() => onAdd(item)}>
+                <button
+                  className="btn qty-btn"
+                  onClick={() => onIncrement(item)}
+                >
                   +
                 </button>
               </div>
               <span
-                onClick={() => onRemoveAll(item)}
+                onClick={() => onClearItem(item)}
                 className="remove-icon-in-cart"
               >
                 Remove

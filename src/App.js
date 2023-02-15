@@ -11,7 +11,7 @@ const App = () => {
   const { products } = data;
   const [cartItems, setCartItems] = useState([]);
 
-  const addItem = (item) => {
+  const handleIncrementItem = (item) => {
     const alreadyInTheCart = cartItems.find((x) => x.id === item.id);
     if (alreadyInTheCart) {
       setCartItems(
@@ -28,7 +28,7 @@ const App = () => {
     }
   };
 
-  const removeItem = (item) => {
+  const handleDecrementItem = (item) => {
     const alreadyInTheCart = cartItems.find((x) => x.id === item.id);
     if (alreadyInTheCart.qty === 1) {
       setCartItems(cartItems.slice().filter((x) => x.id !== item.id));
@@ -45,7 +45,7 @@ const App = () => {
     }
   };
 
-  const clearItem = (item) => {
+  const handleClearItem = (item) => {
     setCartItems(cartItems.slice().filter((x) => x.id !== item.id));
   };
 
@@ -59,9 +59,9 @@ const App = () => {
             path="/shop"
             element={
               <Shop
-                onAdd={addItem}
-                onRemove={removeItem}
-                onRemoveAll={clearItem}
+                onIncrement={handleIncrementItem}
+                onDecrement={handleDecrementItem}
+                onClearItem={handleClearItem}
                 products={products}
                 cartItems={cartItems}
               />
@@ -71,9 +71,9 @@ const App = () => {
             path="/cart"
             element={
               <Cart
-                onAdd={addItem}
-                onRemove={removeItem}
-                onRemoveAll={clearItem}
+                onIncrement={handleIncrementItem}
+                onDecrement={handleDecrementItem}
+                onClearItem={handleClearItem}
                 cartItems={cartItems}
               />
             }
