@@ -15,11 +15,13 @@ const App = () => {
     const alreadyInTheCart = cartItems.find((x) => x.id === item.id);
     if (alreadyInTheCart) {
       setCartItems(
-        cartItems.map((x) =>
-          x.id === item.id
-            ? { ...alreadyInTheCart, qty: alreadyInTheCart.qty + 1 }
-            : x
-        )
+        cartItems
+          .slice()
+          .map((x) =>
+            x.id === item.id
+              ? { ...alreadyInTheCart, qty: alreadyInTheCart.qty + 1 }
+              : x
+          )
       );
     } else {
       setCartItems([...cartItems, { ...item, qty: 1 }]);
@@ -29,20 +31,22 @@ const App = () => {
   const removeItem = (item) => {
     const alreadyInTheCart = cartItems.find((x) => x.id === item.id);
     if (alreadyInTheCart.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== item.id));
+      setCartItems(cartItems.slice().filter((x) => x.id !== item.id));
     } else {
       setCartItems(
-        cartItems.map((x) =>
-          x.id === item.id
-            ? { ...alreadyInTheCart, qty: alreadyInTheCart.qty - 1 }
-            : x
-        )
+        cartItems
+          .slice()
+          .map((x) =>
+            x.id === item.id
+              ? { ...alreadyInTheCart, qty: alreadyInTheCart.qty - 1 }
+              : x
+          )
       );
     }
   };
 
   const clearItem = (item) => {
-    setCartItems(cartItems.filter((x) => x.id !== item.id));
+    setCartItems(cartItems.slice().filter((x) => x.id !== item.id));
   };
 
   return (
